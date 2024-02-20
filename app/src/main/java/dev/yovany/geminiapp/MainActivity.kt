@@ -1,6 +1,7 @@
 package dev.yovany.geminiapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
@@ -33,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.ai.client.generativeai.GenerativeModel
+import dev.yovany.geminiapp.model.Question
 import dev.yovany.geminiapp.ui.theme.GeminiAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -129,6 +131,11 @@ fun SummarizeScreen(
                             text = uiState.outputText,
                             modifier = Modifier.padding(horizontal = 8.dp)
                     )
+
+                    val questions = Question.getList(uiState.outputText)
+                    questions.forEach { question ->
+                        Log.i("QUESTION",question.toString())
+                    }
                 }
             }
 

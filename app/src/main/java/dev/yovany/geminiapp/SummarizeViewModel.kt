@@ -20,7 +20,25 @@ class SummarizeViewModel(
     fun summarize(inputText: String) {
         _uiState.value = SummarizeUiState.Loading
 
-        val prompt = "Summarize the following text for me: $inputText"
+        val prompt = """Asume el papel de un API y necesito que retornes la respuesta utilizando un formato JSON de la siguiente manera:
+            [
+                {
+                    'question': '',
+                    'answers' : [
+                        {
+                            'answer', '',
+                            'isCorrect', false
+                        },
+                        {
+                            'answer', '',
+                            'isCorrect', true
+                        },
+                    ]
+                } 
+            ]
+            
+            siguiendo el anterior formato necesito que generes un listado de preguntas acerca del
+            presente continuo en Ingles con sus respectivas respuestas y la que es correcta marcada como true.""".trimMargin()
 
         viewModelScope.launch {
             try {
