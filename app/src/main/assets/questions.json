@@ -1,0 +1,103 @@
+[
+  {
+    "question": "What is the present continuous tense used for?",
+    "answers": [
+      {
+        "answer": "To describe actions that started in the past and continue through the present time",
+        "isCorrect": true
+      },
+      {
+        "answer": "To describe actions that will happen in the future",
+        "isCorrect": false
+      },
+      {
+        "answer": "To describe actions that ended in the past",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Which of the following is the correct present continuous form of 'to read'?",
+    "answers": [
+      {
+        "answer": "I read",
+        "isCorrect": false
+      },
+      {
+        "answer": "I am reading",
+        "isCorrect": true
+      },
+      {
+        "answer": "I reads",
+        "isCorrect": false
+      },
+      {
+        "answer": "I be reading",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "What is the negative form of the present continuous tense?",
+    "answers": [
+      {
+        "answer": "I don't read",
+        "isCorrect": false
+      },
+      {
+        "answer": "I am not reading",
+        "isCorrect": true
+      },
+      {
+        "answer": "I doesn't read",
+        "isCorrect": false
+      },
+      {
+        "answer": "I isn't reading",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "Which of the following words is used as the auxiliary verb in the present continuous tense?",
+    "answers": [
+      {
+        "answer": "Is",
+        "isCorrect": true
+      },
+      {
+        "answer": "Are",
+        "isCorrect": true
+      },
+      {
+        "answer": "Was",
+        "isCorrect": false
+      },
+      {
+        "answer": "Were",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "question": "What is the present continuous form of 'to go' in the third person singular?",
+    "answers": [
+      {
+        "answer": "He goes",
+        "isCorrect": false
+      },
+      {
+        "answer": "He is going",
+        "isCorrect": true
+      },
+      {
+        "answer": "He went",
+        "isCorrect": false
+      },
+      {
+        "answer": "He will go",
+        "isCorrect": false
+      }
+    ]
+  }
+]

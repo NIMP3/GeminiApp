@@ -38,7 +38,12 @@ class SummarizeViewModel(
             ]
             
             siguiendo el anterior formato necesito que generes un listado de preguntas acerca del
-            presente continuo en Ingles con sus respectivas respuestas y la que es correcta marcada como true.""".trimMargin()
+            presente continuo en Ingles con sus respectivas respuestas y solo una que es correcta marcada como true.
+            el lenguaje a utilizar es Ingles, el numero de respuestas debe estar entre 3 a 5 respuestas por pregunta, 
+            si por alguna razón decides utilizar comillas dobles o sencillas dentro
+            de otras, ejemplo "present continouns from "to read"" cambia las comillas internas para evitar errores de
+            lectura de la siguiente manera "present continouns from 'to read'" o viceversa 'present continouns from "to read"'
+            """.trimMargin()
 
         viewModelScope.launch {
             try {

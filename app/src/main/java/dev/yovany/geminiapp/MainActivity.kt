@@ -133,6 +133,7 @@ fun SummarizeScreen(
                     )
 
                     val questions = Question.getList(uiState.outputText)
+                    Log.i("JSON",uiState.outputText)
                     questions.forEach { question ->
                         Log.i("QUESTION",question.toString())
                     }
