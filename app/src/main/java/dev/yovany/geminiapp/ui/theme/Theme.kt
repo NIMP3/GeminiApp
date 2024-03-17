@@ -1,6 +1,5 @@
 package dev.yovany.geminiapp.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -12,40 +11,37 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-        primary = Purple80,
-        secondary = PurpleGrey80,
-        tertiary = Pink80
+    primary = dark_primary,
+    onPrimary = dark_onPrimary,
+    secondary = dark_secondary,
+    onSecondary = dark_onSecondary,
+    background = dark_background,
+    onBackground = dark_onBackground,
+    surface = dark_surface,
+    onSurface = dark_onSurface,
+    tertiary = dark_tertiary,
+    onTertiary = dark_onTertiary
 )
 
 private val LightColorScheme = lightColorScheme(
-        primary = Purple40,
-        secondary = PurpleGrey40,
-        tertiary = Pink40
-
-        /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = light_primary,
+    onPrimary = light_onPrimary,
+    secondary = light_secondary,
+    onSecondary = light_onSecondary,
+    background = light_background,
+    onBackground = light_onBackground,
+    surface = light_surface,
+    onSurface = light_onSurface,
+    tertiary = light_tertiary,
+    onTertiary = light_onTertiary
 )
 
 @Composable
 fun GeminiAppTheme(
         darkTheme: Boolean = isSystemInDarkTheme(),
-        // Dynamic color is available on Android 12+
-        dynamicColor: Boolean = true,
         content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }

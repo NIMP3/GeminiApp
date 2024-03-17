@@ -1,6 +1,7 @@
 [
   {
     "question": "What is the present continuous tense used for?",
+    "type": "LONG",
     "answers": [
       {
         "answer": "To describe actions that started in the past and continue through the present time",
@@ -18,6 +19,7 @@
   },
   {
     "question": "Which of the following is the correct present continuous form of 'to read'?",
+    "type": "SHORT",
     "answers": [
       {
         "answer": "I read",
@@ -39,6 +41,7 @@
   },
   {
     "question": "What is the negative form of the present continuous tense?",
+    "type": "SHORT",
     "answers": [
       {
         "answer": "I don't read",
@@ -60,6 +63,7 @@
   },
   {
     "question": "Which of the following words is used as the auxiliary verb in the present continuous tense?",
+    "type": "SHORT",
     "answers": [
       {
         "answer": "Is",
@@ -81,6 +85,7 @@
   },
   {
     "question": "What is the present continuous form of 'to go' in the third person singular?",
+    "type": "SHORT",
     "answers": [
       {
         "answer": "He goes",

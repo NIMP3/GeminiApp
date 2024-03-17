@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.google.ai.client.generativeai.GenerativeModel
 import dev.yovany.geminiapp.model.Question
+import dev.yovany.geminiapp.ui.question.QuestionView
 import dev.yovany.geminiapp.ui.theme.GeminiAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -52,107 +53,10 @@ class MainActivity : ComponentActivity() {
                             apiKey = BuildConfig.apiKey
                     )
                     val viewModel = SummarizeViewModel(generativeModel)
-                    SummarizeRoute(viewModel)
+                    QuestionView(viewModel)
                 }
             }
         }
     }
 }
 
-@Composable
-internal fun SummarizeRoute(
-        summarizeViewModel: SummarizeViewModel = viewModel()
-) {
-    val summarizeUiState by summarizeViewModel.uiState.collectAsState()
-
-    SummarizeScreen(summarizeUiState, onSummarizeClicked = { inputText ->
-        summarizeViewModel.summarize(inputText)
-    })
-}
-
-@Composable
-fun SummarizeScreen(
-        uiState: SummarizeUiState = SummarizeUiState.Initial,
-        onSummarizeClicked: (String) -> Unit = {}
-) {
-    var prompt by remember { mutableStateOf("") }
-    Column(
-            modifier = Modifier
-                    .padding(all = 8.dp)
-                    .verticalScroll(rememberScrollState())
-    ) {
-        Row {
-            TextField(
-                    value = prompt,
-                    label = { Text(stringResource(R.string.summarize_label)) },
-                    placeholder = { Text(stringResource(R.string.summarize_hint)) },
-                    onValueChange = { prompt = it },
-                    modifier = Modifier
-                            .weight(8f)
-            )
-            TextButton(
-                    onClick = {
-                        if (prompt.isNotBlank()) {
-                            onSummarizeClicked(prompt)
-                        }
-                    },
-
-                    modifier = Modifier
-                            .weight(2f)
-                            .padding(all = 4.dp)
-                            .align(Alignment.CenterVertically)
-            ) {
-                Text(stringResource(R.string.action_go))
-            }
-        }
-        when (uiState) {
-            SummarizeUiState.Initial -> {
-                // Nothing is shown
-            }
-
-            SummarizeUiState.Loading -> {
-                Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier
-                                .padding(all = 8.dp)
-                                .align(Alignment.CenterHorizontally)
-                ) {
-                    CircularProgressIndicator()
-                }
-            }
-
-            is SummarizeUiState.Success -> {
-                Row(modifier = Modifier.padding(all = 8.dp)) {
-                    Icon(
-                            Icons.Outlined.Person,
-                            contentDescription = "Person Icon"
-                    )
-                    Text(
-                            text = uiState.outputText,
-                            modifier = Modifier.padding(horizontal = 8.dp)
-                    )
-
-                    val questions = Question.getList(uiState.outputText)
-                    Log.i("JSON",uiState.outputText)
-                    questions.forEach { question ->
-                        Log.i("QUESTION",question.toString())
-                    }
-                }
-            }
-
-            is SummarizeUiState.Error -> {
-                Text(
-                        text = uiState.errorMessage,
-                        color = Color.Red,
-                        modifier = Modifier.padding(all = 8.dp)
-                )
-            }
-        }
-    }
-}
-
-@Composable
-@Preview(showSystemUi = true)
-fun SummarizeScreenPreview() {
-    SummarizeScreen()
-}

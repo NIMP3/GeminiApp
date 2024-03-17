@@ -10,6 +10,7 @@ import java.lang.Exception
 
 data class Question(
     val question: String,
+    val type: String,
     val answers: List<Answer>
 ) {
     companion object {
